@@ -12,8 +12,8 @@ the Creative Commons BY license. This is the same resource used
 by [jisho](https://jisho.org/), so the information found there
 should be roughly equivalent.
 
-Alternative headword forms (e.g., variations of あかい: 赤い, 紅
-い, 朱い, 緋い, 赭い, 丹い) are sourced from [The JMDict
+Alternative headword forms (e.g., variations of あかい: 赤い, 紅い, 
+朱い, 緋い, 赭い, 丹い) are sourced from [The JMDict
 Project](https://www.edrdg.org/jmdict/j_jmdict.html) under the
 terms of the Creative Commons Attribution-ShareAlike
 Licence (V3.0).
