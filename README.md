@@ -1,5 +1,6 @@
 # yomichan-jlpt-vocab
-This meta dictionary adds JLPT-level tags to words in Yomichan.
+This meta dictionary adds [JLPT-level](https://www.jlpt.jp/e/about/levelsummary.html)
+tags to words in [Yomichan](https://foosoft.net/projects/yomichan/).
 
 ![N5 tag on the word 読む](example.png)
 
@@ -20,7 +21,7 @@ Licence (V3.0).
 
 ## Install
 
-Download the zip file from the [latest
+Download **jlpt.zip** from the [latest
 release](https://github.com/stephenmk/yomichan-jlpt-vocab/releases/latest)
 and import it into Yomichan just like any other dictionary.
 
