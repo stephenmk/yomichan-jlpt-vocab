@@ -25,7 +25,7 @@ Download **jlpt.zip** from the [latest
 release](https://github.com/stephenmk/yomichan-jlpt-vocab/releases/latest)
 and import it into Yomichan just like any other dictionary.
 
-## Build from source
+## Build from source (optional)
 
 1. Clone this repository
 2. Run the provided Python script within the project directory
