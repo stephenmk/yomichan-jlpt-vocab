@@ -34,3 +34,51 @@ and import it into Yomichan just like any other dictionary.
     - Files must be in the top-level of the zip file, i.e., not
       within any sub-folders
 4. Import the zip file into Yomichan
+
+## Limitations
+
+### Headwords
+
+As mentioned above, a large number of alternative headwords
+have been added to the base dataset provided by Jonathan
+Waller. This is useful because, for example, the word 取り引き is
+included as an N1 vocabulary word in the original data, but other
+common forms of the word (取引 and 取引き) are not.
+
+However, the addition of these alternative forms means that some
+obscure spellings that would never appear even on an N1 exam might be
+tagged with an N5 label.  In a worst-case scenario, a beginner
+could be misled into making a flashcard for 歸る (instead of
+帰る) because it is labeled as N5. This seems unlikely to
+happen since obscure spellings are, by definition, unlikely to
+appear in the wild, but some user discretion is required.
+
+If this is concerning to you, I recomend installing a
+[KANJIDIC](https://foosoft.net/projects/yomichan/#dictionaries)
+dictionary if you haven't already. This allows you to click on
+kanji within Yomichan and view extra information about it, including
+its JLPT level (if applicable). Other frequency dictionaries (such
+as Innocent Corpus) are available that can help distinguish
+common spellings from rare ones.
+
+### JLPT Lists
+
+The JLPT is an evolving entity. As far as I know, no true comprehensive
+vocabulary list is available to the public. The lists provided by 
+Jonathan Waller are already around 10 years old and may no longer
+be as accurate as they once were. This dictionary is only intended to
+be one useful resource among many in helping you learn vocabulary.
+
+## Similar Projects
+
+Users on the [WaniKani
+forums](https://community.wanikani.com/t/yomichan-and-wanikanijlpt-tags/37535)
+have developed a similar solution using a custom-built version of
+JMDict for Yomichan. Since JMDict is updated frequently, I prefer
+to occassionally [build my own
+version](https://foosoft.net/projects/yomichan-import/) to get
+the latest data.
+
+This is a stand-alone meta dictionary, so it can even be used
+without JMDict installed. This would be useful for people who
+only want to use monolingual dictionaries.
