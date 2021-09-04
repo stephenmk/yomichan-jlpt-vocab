@@ -79,9 +79,8 @@ for key in vocab:
             bank = bank + 1
 
 with open("jlpt/index.json", 'w') as f:
-    f.write('{"revision":"JLPT;2021-09-03"'
-            ',"description":"Vocabulary JLPT levels based upon'
-            ' Jonathan Waller\'s JLPT Resources"'
+    f.write('{"revision":"JLPT;2021-09-04"'
+            ',"description":"https://github.com/stephenmk/yomichan-jlpt-vocab"'
             ',"title":"JLPT"'
             ',"format":3'
             ',"author":"stephenmk"}')
