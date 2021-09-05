@@ -66,7 +66,7 @@ for key in vocab:
             f.write('[')
             first = False
         else:
-            f.write(',')
+            f.write(',\n')
         if type(key) == tuple:
             f.write(f'["{key[0]}","freq"'
                     f',{{"reading":"{key[1]}","frequency":"{vocab[key]}"}}]')
@@ -79,7 +79,7 @@ for key in vocab:
             bank = bank + 1
 
 with open("jlpt/index.json", 'w') as f:
-    f.write('{"revision":"JLPT;2021-09-04"'
+    f.write('{"revision":"JLPT;2021-09-05.2"'
             ',"description":"https://github.com/stephenmk/yomichan-jlpt-vocab"'
             ',"title":"JLPT"'
             ',"format":3'
