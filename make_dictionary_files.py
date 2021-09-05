@@ -79,7 +79,7 @@ for key in vocab:
             bank = bank + 1
 
 with open("jlpt/index.json", 'w') as f:
-    f.write('{"revision":"JLPT;2021-09-05.2"'
+    f.write('{"revision":"JLPT;2021-09-05"'
             ',"description":"https://github.com/stephenmk/yomichan-jlpt-vocab"'
             ',"title":"JLPT"'
             ',"format":3'
