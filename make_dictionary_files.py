@@ -32,13 +32,13 @@ vocab = {}
 def load_csv(filename, level):
     with open(filename) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
-        # index 0 is kanji
-        # index 1 is kana
+        # index 1 is kanji
+        # index 2 is kana
         for row in csv_reader:
-            if row[0] == "":
-                key = row[1]
+            if row[1] == "":
+                key = row[2]
             else:
-                key = (row[0], row[1])
+                key = (row[1], row[2])
             if key not in vocab:
                 vocab[key] = level
             else:
