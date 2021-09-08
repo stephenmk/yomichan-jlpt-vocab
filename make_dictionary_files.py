@@ -26,24 +26,25 @@ import csv
 import os
 import shutil
 
-vocab = {}
+vocab_list = []
 
 
 def load_csv(filename, level):
     with open(filename) as csv_file:
+        first = True
         csv_reader = csv.reader(csv_file, delimiter=',')
         # index 1 is kanji
         # index 2 is kana
+        # index 4 is origin (waller or jmdict)
         for row in csv_reader:
-            if row[1] == "":
-                key = row[2]
+            if first:  # skip first row (headers)
+                first = False
+                continue
+            if row[4] == "waller":
+                vocab_level = level
             else:
-                key = (row[1], row[2])
-            if key not in vocab:
-                vocab[key] = level
-            else:
-                # it's a duplicate
-                pass
+                vocab_level = level + "*"
+            vocab_list.append([row[1], row[2], vocab_level])
 
 
 load_csv("n5.csv", "N5")
@@ -60,26 +61,26 @@ i = 0
 bank = 1
 first = True
 
-for key in vocab:
+for vocab in vocab_list:
     with open(f"jlpt/term_meta_bank_{bank}.json", 'a') as f:
         if first:
             f.write('[')
             first = False
         else:
             f.write(',\n')
-        if type(key) == tuple:
-            f.write(f'["{key[0]}","freq"'
-                    f',{{"reading":"{key[1]}","frequency":"{vocab[key]}"}}]')
+        if vocab[0] != "":
+            f.write(f'["{vocab[0]}","freq"'
+                    f',{{"reading":"{vocab[1]}","frequency":"{vocab[2]}"}}]')
         else:
-            f.write(f'["{key}","freq","{vocab[key]}"]')
+            f.write(f'["{vocab[1]}","freq","{vocab[2]}"]')
         i = i + 1
-        if i % 4000 == 0 or i == len(vocab):
+        if i % 4000 == 0 or i == len(vocab_list):
             f.write(']')
             first = True
             bank = bank + 1
 
 with open("jlpt/index.json", 'w') as f:
-    f.write('{"revision":"JLPT;2021-09-05"'
+    f.write('{"revision":"JLPT;2021-09-08"'
             ',"description":"https://github.com/stephenmk/yomichan-jlpt-vocab"'
             ',"title":"JLPT"'
             ',"format":3'
