@@ -46,21 +46,18 @@ because, for example, the word 取り引き is included as an N1
 vocabulary word in the original data, but other common forms of the
 word (取引 and 取引き) are not.
 
-However, the addition of these alternative forms means that some
-obscure spellings that would never appear even on an N1 exam might be
-tagged with an N5 label. In a worst-case scenario, a beginner could be
-misled into making a flashcard for 歸る (instead of 帰る) because it
-is labeled as N5. This seems unlikely to happen since obscure
-spellings are unlikely to appear in the wild, but some user discretion
-is required.
+The addition of these alternative forms means that some obscure
+spellings that would never appear even on an N1 exam might be tagged
+with an N5 label. For example, 歸る is tagged as N5 because it is an
+alternative form of 帰る. **An asterisk has been added to the tags of
+all alternative forms to allow the user to distinguish these usages.**
 
-If this is concerning to you, I recommend installing a
-[KANJIDIC](https://foosoft.net/projects/yomichan/#dictionaries)
-dictionary if you haven't already. This allows you to click on a kanji
-within Yomichan and view extra information about it, including its
-JLPT level (if applicable). Other frequency dictionaries (such as
-Innocent Corpus) are available that can help distinguish common
-spellings from rare ones.
+Some words have alternative forms that appear again on a
+higher-difficulty list. For example, あさって is N5 but its kanji form
+明後日 is N1. Words such as this have been assigned two tags, so
+明後日 will appear as "N5*,N1".
+
+![N5* and N1 tags on the word 明後日](example2.png)
 
 ### JLPT Lists
 
