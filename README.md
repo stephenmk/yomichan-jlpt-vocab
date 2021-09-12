@@ -68,6 +68,18 @@ longer be as accurate as they once were. This dictionary is only
 intended to be one useful resource among many in helping you learn
 vocabulary.
 
+## Statistics
+
+| | N5 | N4 | N3 | N2 | N1 | Total |
+|-|-|-|-|-|-|-|
+| Unique New Words | 667  | 630 | 1649 | 1731 | 3065 | 7742 |
+
+Uniqueness is defined by a word's JMDict "seq" number, so 取り引き,
+取引, and 取引き would be counted together as one unique word.
+Unique words that appear in multiple lists are not counted multiple
+times.
+
+
 ## Similar Projects
 
 Users on the [WaniKani
