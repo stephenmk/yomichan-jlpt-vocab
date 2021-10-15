@@ -30,11 +30,8 @@ and import it into Yomichan just like any other dictionary.
 
 1. Clone this repository
 2. Run the provided Python script within the project directory
-    - This will produce a new directory named JLPT
-3. Zip the contents of JLPT directory
-    - Files must be in the top-level of the zip file, i.e., not
-      within any sub-folders
-4. Import the zip file into Yomichan
+    - This will produce a zip file named jlpt.zip
+3. Import the zip file into Yomichan
 
 ## Limitations
 

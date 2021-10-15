@@ -26,6 +26,7 @@ import csv
 import os
 import shutil
 import json
+import uuid
 
 
 def convert_csv_to_json(row, level):
@@ -37,7 +38,7 @@ def convert_csv_to_json(row, level):
         freq_value = level
         freq_display = f"N{level}*"
     else:
-        raise Exception(f"Unexpected 'origin' in {csv_data}: '{origin}'")
+        raise Exception(f"Unexpected 'origin' in N{level} data: '{origin}'")
     if kanji != "":
         entry = [kanji, "freq", {"reading": kana, "frequency": {
             "value": freq_value, "displayValue": freq_display}}]
@@ -70,16 +71,15 @@ for jlpt_level in [5, 4, 3, 2, 1]:
         entry = convert_csv_to_json(row, jlpt_level)
         dictionary_entries.append(entry)
 
-if Path("jlpt").is_dir():
-    shutil.rmtree("jlpt")
-os.mkdir("jlpt")
+output_dir = f"jlpt-{uuid.uuid4()}"
+os.mkdir(output_dir)
 
 i = 0
 bank = 1
 first = True
 
 for entry in dictionary_entries:
-    with open(f"jlpt/term_meta_bank_{bank}.json", 'a') as f:
+    with open(f"{output_dir}/term_meta_bank_{bank}.json", 'a') as f:
         if first:
             f.write('[')
             first = False
@@ -92,9 +92,15 @@ for entry in dictionary_entries:
             first = True
             bank = bank + 1
 
-with open("jlpt/index.json", 'w') as f:
+with open(f"{output_dir}/index.json", 'w') as f:
     f.write('{"revision":"JLPT;2021-10-15"'
             ',"description":"https://github.com/stephenmk/yomichan-jlpt-vocab"'
             ',"title":"JLPT"'
             ',"format":3'
             ',"author":"stephenmk"}')
+
+if Path("jlpt.zip").is_file():
+    os.remove("jlpt.zip")
+
+shutil.make_archive("jlpt", 'zip', output_dir)
+shutil.rmtree(output_dir)
