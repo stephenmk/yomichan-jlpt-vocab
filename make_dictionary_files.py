@@ -25,33 +25,50 @@ from pathlib import Path
 import csv
 import os
 import shutil
+import json
 
-vocab_list = []
+
+def convert_csv_to_json(row, level):
+    kanji, kana, origin = row[1], row[2], row[4]
+    if origin == "waller":
+        freq_value = level + 5
+        freq_display = f"N{level}"
+    elif origin == "jmdict":
+        freq_value = level
+        freq_display = f"N{level}*"
+    else:
+        raise Exception(f"Unexpected 'origin' in {csv_data}: '{origin}'")
+    if kanji != "":
+        entry = [kanji, "freq", {"reading": kana, "frequency": {
+            "value": freq_value, "displayValue": freq_display}}]
+    else:
+        entry = [kana, "freq", {"value": freq_value,
+                                "displayValue": freq_display}]
+    json_string = json.dumps(entry, ensure_ascii=False)
+    return json_string
 
 
-def load_csv(filename, level):
+def load_csv(filename):
+    csv_data = []
     with open(filename) as csv_file:
         first = True
         csv_reader = csv.reader(csv_file, delimiter=',')
-        # index 1 is kanji
-        # index 2 is kana
-        # index 4 is origin (waller or jmdict)
         for row in csv_reader:
             if first:  # skip first row (headers)
                 first = False
                 continue
-            if row[4] == "waller":
-                vocab_level = level
-            else:
-                vocab_level = -level
-            vocab_list.append([row[1], row[2], vocab_level])
+            csv_data.append(row)
+    return csv_data
 
 
-load_csv("n5.csv", 5)
-load_csv("n4.csv", 4)
-load_csv("n3.csv", 3)
-load_csv("n2.csv", 2)
-load_csv("n1.csv", 1)
+dictionary_entries = []
+
+for jlpt_level in [5, 4, 3, 2, 1]:
+    filename = f"n{jlpt_level}.csv"
+    csv_data = load_csv(filename)
+    for row in csv_data:
+        entry = convert_csv_to_json(row, jlpt_level)
+        dictionary_entries.append(entry)
 
 if Path("jlpt").is_dir():
     shutil.rmtree("jlpt")
@@ -61,26 +78,22 @@ i = 0
 bank = 1
 first = True
 
-for vocab in vocab_list:
+for entry in dictionary_entries:
     with open(f"jlpt/term_meta_bank_{bank}.json", 'a') as f:
         if first:
             f.write('[')
             first = False
         else:
             f.write(',\n')
-        if vocab[0] != "":
-            f.write(f'["{vocab[0]}","freq"'
-                    f',{{"reading":"{vocab[1]}","frequency":{vocab[2]}}}]')
-        else:
-            f.write(f'["{vocab[1]}","freq",{vocab[2]}]')
+        f.write(entry)
         i = i + 1
-        if i % 4000 == 0 or i == len(vocab_list):
+        if i % 4000 == 0 or i == len(dictionary_entries):
             f.write(']')
             first = True
             bank = bank + 1
 
 with open("jlpt/index.json", 'w') as f:
-    f.write('{"revision":"JLPT;2021-10-14"'
+    f.write('{"revision":"JLPT;2021-10-15"'
             ',"description":"https://github.com/stephenmk/yomichan-jlpt-vocab"'
             ',"title":"JLPT"'
             ',"format":3'
