@@ -43,15 +43,15 @@ def load_csv(filename, level):
             if row[4] == "waller":
                 vocab_level = level
             else:
-                vocab_level = level + "*"
+                vocab_level = -level
             vocab_list.append([row[1], row[2], vocab_level])
 
 
-load_csv("n5.csv", "N5")
-load_csv("n4.csv", "N4")
-load_csv("n3.csv", "N3")
-load_csv("n2.csv", "N2")
-load_csv("n1.csv", "N1")
+load_csv("n5.csv", 5)
+load_csv("n4.csv", 4)
+load_csv("n3.csv", 3)
+load_csv("n2.csv", 2)
+load_csv("n1.csv", 1)
 
 if Path("jlpt").is_dir():
     shutil.rmtree("jlpt")
@@ -70,9 +70,9 @@ for vocab in vocab_list:
             f.write(',\n')
         if vocab[0] != "":
             f.write(f'["{vocab[0]}","freq"'
-                    f',{{"reading":"{vocab[1]}","frequency":"{vocab[2]}"}}]')
+                    f',{{"reading":"{vocab[1]}","frequency":{vocab[2]}}}]')
         else:
-            f.write(f'["{vocab[1]}","freq","{vocab[2]}"]')
+            f.write(f'["{vocab[1]}","freq",{vocab[2]}]')
         i = i + 1
         if i % 4000 == 0 or i == len(vocab_list):
             f.write(']')
@@ -80,7 +80,7 @@ for vocab in vocab_list:
             bank = bank + 1
 
 with open("jlpt/index.json", 'w') as f:
-    f.write('{"revision":"JLPT;2021-09-08"'
+    f.write('{"revision":"JLPT;2021-10-14"'
             ',"description":"https://github.com/stephenmk/yomichan-jlpt-vocab"'
             ',"title":"JLPT"'
             ',"format":3'
