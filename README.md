@@ -44,26 +44,29 @@ vocabulary word in the original data, but other common forms of the
 word (取引 and 取引き) are not.
 
 The addition of these alternative forms means that some obscure
-spellings that would never appear even on an N1 exam might be tagged
-with an N5 label. For example, 歸る is tagged as N5 because it is an
-alternative form of 帰る. **An asterisk has been added to the tags of
-all alternative forms to allow the user to distinguish these usages.**
+spellings that would never appear on an exam might be tagged with an
+N5 label. For example, 歸る is tagged as N5 because it is an
+alternative form of 帰る. In these situations, the original spelling
+is displayed in parentheses inside the tag.
+
+![Regular form of kaeru displayed in the JLPT tag for an obscure variant](example3.png)
 
 Some words have alternative forms that appear again on a
 higher-difficulty list. For example, あさって is N5 but its kanji form
 明後日 is N1. Words such as this have been assigned two tags, so
-明後日 will appear as "N5*,N1".
+明後日 will appear as "N5 (あさって), N1".
 
-![N5* and N1 tags on the word 明後日](example2.png)
+![Kana displayed in the JLPT tag for the kanji version of asatte](example4.png)
 
 ### JLPT Lists
 
-The JLPT is an evolving entity. As far as I know, no true
-comprehensive vocabulary list is available to the public. The lists
-provided by Jonathan Waller are already around 10 years old and may no
-longer be as accurate as they once were. This dictionary is only
-intended to be one useful resource among many in helping you learn
-vocabulary.
+The lists used in this project were compiled by Jonathan Waller around
+10 years ago, and I have made no attempt to curate them further. I can
+personally attest that more than one word from Waller's N1 list
+appeared in vocabulary section of the N2 exam in December 2021. Even
+though these lists shouldn't be considered comprehensive, I think they
+are still useful for identifying words that you can expect to see on
+the exam.
 
 ## Statistics
 
