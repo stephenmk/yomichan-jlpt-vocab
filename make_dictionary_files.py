@@ -31,11 +31,10 @@ import uuid
 
 def convert_csv_to_json(row, level):
     kanji, kana, origin, original = [row[i] for i in (1, 2, 4, 5)]
+    freq_value = level
     if origin == "waller":
-        freq_value = level + 5
         freq_display = f"N{level}"
     elif origin == "jmdict":
-        freq_value = level
         freq_display = f"N{level} ({original})"
     else:
         raise Exception(f"Unexpected 'origin' in N{level} data: '{origin}'")
@@ -93,7 +92,7 @@ for entry in dictionary_entries:
             bank = bank + 1
 
 with open(f"{output_dir}/index.json", 'w') as f:
-    f.write('{"revision":"JLPT;2022-01-24"'
+    f.write('{"revision":"JLPT;2022-01-30"'
             ',"description":"https://github.com/stephenmk/yomichan-jlpt-vocab"'
             ',"title":"JLPT"'
             ',"format":3'
