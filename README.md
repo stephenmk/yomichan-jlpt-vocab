@@ -4,7 +4,7 @@ This meta dictionary adds
 [JLPT-level](https://www.jlpt.jp/e/about/levelsummary.html) tags to
 words in [Yomichan](https://foosoft.net/projects/yomichan/).
 
-![N5 tag on the word 読む](example.png)
+![N5 tag on the word 読む](img/example.png)
 
 ## Attribution
 
@@ -49,14 +49,14 @@ N5 label. For example, 歸る is tagged as N5 because it is an
 alternative form of 帰る. In these situations, the original spelling
 is displayed in parentheses inside the tag.
 
-![Regular form of kaeru displayed in the JLPT tag for an obscure variant](example3.png)
+![Regular form of kaeru displayed in the JLPT tag for an obscure variant](img/example3.png)
 
 Some words have alternative forms that appear again on a
 higher-difficulty list. For example, あさって is N5 but its kanji form
 明後日 is N1. Words such as this have been assigned two tags, so
 明後日 will appear as "N5 (あさって), N1".
 
-![Kana displayed in the JLPT tag for the kanji version of asatte](example4.png)
+![Kana displayed in the JLPT tag for the kanji version of asatte](img/example4.png)
 
 ### JLPT Lists
 

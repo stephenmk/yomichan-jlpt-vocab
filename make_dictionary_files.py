@@ -62,9 +62,9 @@ def row_to_jlpt_term(row, level):
     return term
 
 
-def load_csv(filename):
+def load_csv(filepath):
     csv_data = []
-    with open(filename) as csv_file:
+    with open(filepath) as csv_file:
         first = True
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
@@ -78,8 +78,8 @@ def load_csv(filename):
 def make_jlpt_terms():
     terms = []
     for jlpt_level in [5, 4, 3, 2, 1]:
-        filename = f"n{jlpt_level}.csv"
-        csv_data = load_csv(filename)
+        filepath = os.path.join("data", f"n{jlpt_level}.csv")
+        csv_data = load_csv(filepath)
         for row in csv_data:
             term = row_to_jlpt_term(row, jlpt_level)
             terms.append(term)
