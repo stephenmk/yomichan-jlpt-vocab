@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Copyright (c) 2021 Stephen Kraus
+# Copyright (c) 2021-2023 Stephen Kraus
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -29,8 +29,8 @@ import json
 import uuid
 
 
-def convert_csv_to_json(row, level):
-    kanji, kana, origin, original = [row[i] for i in (1, 2, 4, 5)]
+def row_to_jlpt_term(row, level):
+    (_, kanji, kana, _, origin, original) = row
     freq_value = level
     if origin == "waller":
         freq_display = f"N{level}"
@@ -39,13 +39,27 @@ def convert_csv_to_json(row, level):
     else:
         raise Exception(f"Unexpected 'origin' in N{level} data: '{origin}'")
     if kanji != "":
-        entry = [kanji, "freq", {"reading": kana, "frequency": {
-            "value": freq_value, "displayValue": freq_display}}]
+        term = [
+            kanji,
+            "freq",
+            {
+                "reading": kana,
+                "frequency": {
+                    "value": freq_value,
+                    "displayValue": freq_display
+                }
+            }
+        ]
     else:
-        entry = [kana, "freq", {"value": freq_value,
-                                "displayValue": freq_display}]
-    json_string = json.dumps(entry, ensure_ascii=False)
-    return json_string
+        term = [
+            kana,
+            "freq",
+            {
+                "value": freq_value,
+                "displayValue": freq_display
+            }
+        ]
+    return term
 
 
 def load_csv(filename):
@@ -61,45 +75,48 @@ def load_csv(filename):
     return csv_data
 
 
-dictionary_entries = []
+def make_jlpt_terms():
+    terms = []
+    for jlpt_level in [5, 4, 3, 2, 1]:
+        filename = f"n{jlpt_level}.csv"
+        csv_data = load_csv(filename)
+        for row in csv_data:
+            term = row_to_jlpt_term(row, jlpt_level)
+            terms.append(term)
+    return terms
 
-for jlpt_level in [5, 4, 3, 2, 1]:
-    filename = f"n{jlpt_level}.csv"
-    csv_data = load_csv(filename)
-    for row in csv_data:
-        entry = convert_csv_to_json(row, jlpt_level)
-        dictionary_entries.append(entry)
 
-output_dir = f"jlpt-{uuid.uuid4()}"
-os.mkdir(output_dir)
+def write_term_meta_dictionary(terms, filename, index):
+    output_dir = str(uuid.uuid4())
+    os.mkdir(output_dir)
 
-i = 0
-bank = 1
-first = True
+    terms_per_file = 4000
+    max_i = int(len(terms) / terms_per_file) + 1
+    for i in range(max_i):
+        term_file = f"{output_dir}/term_meta_bank_{i+1}.json"
+        with open(term_file, "w", encoding='utf8') as f:
+            start = terms_per_file * i
+            end = terms_per_file * (i + 1)
+            json.dump(terms[start:end], f, indent=4, ensure_ascii=False)
 
-for entry in dictionary_entries:
-    with open(f"{output_dir}/term_meta_bank_{bank}.json", 'a') as f:
-        if first:
-            f.write('[')
-            first = False
-        else:
-            f.write(',\n')
-        f.write(entry)
-        i = i + 1
-        if i % 4000 == 0 or i == len(dictionary_entries):
-            f.write(']')
-            first = True
-            bank = bank + 1
+    with open(f"{output_dir}/index.json", 'w') as f:
+        json.dump(index, f, indent=4, ensure_ascii=False)
 
-with open(f"{output_dir}/index.json", 'w') as f:
-    f.write('{"revision":"JLPT;2022-01-30"'
-            ',"description":"https://github.com/stephenmk/yomichan-jlpt-vocab"'
-            ',"title":"JLPT"'
-            ',"format":3'
-            ',"author":"stephenmk"}')
+    if Path(f"{filename}.zip").is_file():
+        os.remove(f"{filename}.zip")
 
-if Path("jlpt.zip").is_file():
-    os.remove("jlpt.zip")
+    shutil.make_archive(filename, 'zip', output_dir)
+    shutil.rmtree(output_dir)
 
-shutil.make_archive("jlpt", 'zip', output_dir)
-shutil.rmtree(output_dir)
+
+if __name__ == '__main__':
+    terms = make_jlpt_terms()
+    filename = "jlpt"
+    index = {
+        "revision": "JLPT;2022-01-30",
+        "description": "https://github.com/stephenmk/yomichan-jlpt-vocab",
+        "title": "JLPT",
+        "format": 3,
+        "author": "stephenmk",
+    }
+    write_term_meta_dictionary(terms, filename, index)
