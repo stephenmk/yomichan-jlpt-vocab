@@ -93,13 +93,14 @@ def write_term_meta_dictionary(terms, filename, index):
     terms_per_file = 4000
     max_i = int(len(terms) / terms_per_file) + 1
     for i in range(max_i):
-        term_file = f"{output_dir}/term_meta_bank_{i+1}.json"
+        term_file = os.path.join(output_dir, f"term_meta_bank_{i+1}.json")
         with open(term_file, "w", encoding='utf8') as f:
             start = terms_per_file * i
             end = terms_per_file * (i + 1)
             json.dump(terms[start:end], f, indent=4, ensure_ascii=False)
 
-    with open(f"{output_dir}/index.json", 'w') as f:
+    index_file = os.path.join(output_dir, "index.json")
+    with open(index_file, 'w') as f:
         json.dump(index, f, indent=4, ensure_ascii=False)
 
     if Path(f"{filename}.zip").is_file():
@@ -113,10 +114,10 @@ if __name__ == '__main__':
     terms = make_jlpt_terms()
     filename = "jlpt"
     index = {
-        "revision": "JLPT;2022-01-30",
+        "revision":    "JLPT;2022-01-30",
         "description": "https://github.com/stephenmk/yomichan-jlpt-vocab",
-        "title": "JLPT",
-        "format": 3,
-        "author": "stephenmk",
+        "title":       "JLPT",
+        "format":      3,
+        "author":      "stephenmk",
     }
     write_term_meta_dictionary(terms, filename, index)
