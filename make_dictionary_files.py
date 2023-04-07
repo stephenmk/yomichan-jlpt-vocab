@@ -29,8 +29,7 @@ import json
 import uuid
 
 
-def row_to_jlpt_term(row, level):
-    (_, kanji, kana, _, origin, original) = row
+def make_jlpt_freq(level, origin, original):
     freq_value = level
     if origin == "waller":
         freq_display = f"N{level}"
@@ -38,27 +37,20 @@ def row_to_jlpt_term(row, level):
         freq_display = f"N{level} ({original})"
     else:
         raise Exception(f"Unexpected 'origin' in N{level} data: '{origin}'")
+    freq = {
+        "value":        freq_value,
+        "displayValue": freq_display
+    }
+    return freq
+
+
+def row_to_jlpt_term(row, level):
+    (_, kanji, kana, _, origin, original) = row
+    freq = make_jlpt_freq(level, origin, original)
     if kanji != "":
-        term = [
-            kanji,
-            "freq",
-            {
-                "reading": kana,
-                "frequency": {
-                    "value": freq_value,
-                    "displayValue": freq_display
-                }
-            }
-        ]
+        term = [kanji, "freq", {"reading": kana, "frequency": freq}]
     else:
-        term = [
-            kana,
-            "freq",
-            {
-                "value": freq_value,
-                "displayValue": freq_display
-            }
-        ]
+        term = [kana, "freq", freq]
     return term
 
 
