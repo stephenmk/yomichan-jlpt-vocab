@@ -1,4 +1,4 @@
-# yomichan-jlpt-vocab
+# yomitan-jlpt-vocab
 
 This meta dictionary adds
 [JLPT-level](https://www.jlpt.jp/e/about/levelsummary.html) tags to
@@ -26,7 +26,7 @@ their more common forms: 歯磨き, 遡る, and 炬燵.
 ## Install
 
 Download **jlpt.zip** from the
-[latest release](https://github.com/stephenmk/yomichan-jlpt-vocab/releases/latest)
+[latest release](https://github.com/stephenmk/yomitan-jlpt-vocab/releases/latest)
 and import it into Yomitan just like any other dictionary.
 
 ## Limitations
