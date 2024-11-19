@@ -208,7 +208,7 @@
 1587840,"容れ物","いれもの","container,case,receptacle","jmdict","入れ物"
 1587840,"入物","いれもの","container,case,receptacle","jmdict","入れ物"
 1587840,"容物","いれもの","container,case,receptacle","jmdict","入れ物"
-1022210,,"インキ","ink","waller",
+2856157,,"インキ","ink","waller",
 1023100,,"インタビュー","interview","waller",
 1023100,,"インタビュ","interview","jmdict","インタビュー"
 1023100,,"インタービュー","interview","jmdict","インタビュー"
@@ -258,7 +258,7 @@
 1588140,"打合わせ","うちあわせ","business meeting,previous arrangement,appointment","jmdict","打合せ"
 1609310,"打ち消す","うちけす","to deny,to negate,to contradict","waller",
 1609310,"打消す","うちけす","to deny,to negate,to contradict","jmdict","打ち消す"
-1253570,"討つ","うつ","to attack,to avenge","waller",
+1478010,"討つ","うつ","to attack,to avenge","waller",
 1001010,,"うっかり","carelessly,thoughtlessly,inadvertently","waller",
 1001010,,"ウッカリ","carelessly,thoughtlessly,inadvertently","jmdict","うっかり"
 1588330,"映す","うつす","to project,to reflect,to cast (shadow)","waller",
@@ -989,9 +989,6 @@
 1274810,"公務","こうむ","official business,public business","waller",
 1283000,"項目","こうもく","item","waller",
 1578780,"紅葉","こうよう","(1) (Japanese) maple","waller",
-1578780,"黄葉","こうよう","(1) (Japanese) maple","jmdict","紅葉"
-1578780,"黄葉","もみじ","(1) (Japanese) maple","jmdict","紅葉"
-1578780,"椛","もみじ","(1) (Japanese) maple","jmdict","紅葉"
 1285330,"合理","ごうり","rational","waller",
 1272580,"交流","こうりゅう","alternating current,intercourse,(cultural) exchange,intermingling","waller",
 1285390,"合流","ごうりゅう","confluence,union,linking up,merge","waller",
@@ -1182,8 +1179,8 @@
 1552390,"有繋","さすが","clever,adept,good,expectations,as one would expect","jmdict","流石"
 1298800,"撮影","さつえい","photographing","waller",
 1299280,"雑音","ざつおん","noise (jarring, grating)","waller",
-1005190,,"さっさ","quickly","waller",
-1005190,,"サッサ","quickly","jmdict","さっさ"
+1005190,,"さっさと","quickly","waller",
+1005190,,"サッサと","quickly","jmdict","さっさと"
 1400300,"早速","さっそく","at once,immediately,without delay,promptly","waller",
 1593820,"錆","さび","rust (colour)","waller",
 1593820,"錆び","さび","rust (colour)","jmdict","錆"
@@ -1761,7 +1758,7 @@
 1415090,"大木","たいぼく","large tree","waller",
 1415490,"題名","だいめい","title","waller",
 1412340,"代名詞","だいめいし","pronoun","waller",
-1075840,,"タイア","tire,tyre","waller",
+1076120,,"タイア","tire,tyre","waller",
 1076680,,"ダイヤグラム","diagram","waller",
 1076680,,"ダイアグラム","diagram","jmdict","ダイヤグラム"
 1076890,,"ダイヤモンド","diamond","waller",
@@ -1806,7 +1803,7 @@
 1288480,,"たちまち","at once,in a moment,suddenly,all at once","waller",
 1288480,"忽ち","たちまち","at once,in a moment,suddenly,all at once","jmdict","たちまち"
 1597045,"建つ","たつ","to erect,to be erected,to be built","waller",
-1597040,"発つ","たつ","to depart (on a plane, train, etc.)","waller",
+2857436,"発つ","たつ","to depart (on a plane, train, etc.)","waller",
 1416560,"脱線","だっせん","derailment,digression","waller",
 1408540,"妥当","だとう","valid,proper,right,appropriate","waller",
 1597130,"例える","たとえる","to compare,to liken,to speak figuratively,to illustrate,to use a simile","waller",
@@ -2204,7 +2201,7 @@
 1457830,"内科","ないか","internist clinic,internal medicine","waller",
 1458650,"内線","ないせん","phone extension,indoor wiring,inner line","waller",
 1089930,,"ナイロン","nylon","waller",
-1599390,"治す","なおす","to cure,to heal,to fix,to correct,to repair","waller",
+2856318,"治す","なおす","to cure,to heal,to fix,to correct,to repair","waller",
 1429750,"永い","ながい","long,lengthy","waller",
 1426000,"仲直り","なかなおり","reconciliation,make peace with","waller",
 1610950,"長引く","ながびく","to be prolonged,to drag on","waller",
@@ -2223,14 +2220,11 @@
 1181390,"殴る","なぐる","to strike,to hit","jmdict","なぐる"
 1181390,"擲る","なぐる","to strike,to hit","jmdict","なぐる"
 1181390,"撲る","なぐる","to strike,to hit","jmdict","なぐる"
-1157130,"為す","なす","to accomplish,to do","waller",
-1157130,,"なす","to accomplish,to do","jmdict","為す"
-1157130,"成す","なす","to accomplish,to do","jmdict","為す"
+2861111,"為す","なす","to accomplish,to do","waller",
 1599500,"謎謎","なぞなぞ","riddle,puzzle,enigma","waller",
 1599500,,"なぞなぞ","riddle,puzzle,enigma","jmdict","謎謎"
 1599500,"謎々","なぞなぞ","riddle,puzzle,enigma","jmdict","謎謎"
-1632290,"傾らか","なだらか",,"waller",
-1632290,,"なだらか",,"jmdict","傾らか"
+1632290,,"なだらか",,"waller",
 1200490,"懐かしい","なつかしい","dear,desired,missed","waller",
 1498290,"撫でる","なでる","to brush gently,to stroke","waller",
 1322400,"斜め","ななめ","obliqueness","waller",
@@ -3118,7 +3112,7 @@
 1502630,,"ものすごい","earth-shattering,staggering,to a very great extent","jmdict","物凄い"
 1502630,"もの凄い","ものすごい","earth-shattering,staggering,to a very great extent","jmdict","物凄い"
 1135680,,"モノレール","monorail","waller",
-1578780,"紅葉","もみじ","(1) (Japanese) maple","waller",
+2857870,"紅葉","もみじ","(1) (Japanese) maple","waller",
 1567610,"揉む","もむ","to rub,to crumple (up),to wrinkle","waller",
 1567610,,"もむ","to rub,to crumple (up),to wrinkle","jmdict","揉む"
 1582900,"燃やす","もやす","to burn","waller",
