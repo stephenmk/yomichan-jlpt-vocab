@@ -9,5 +9,5 @@
     "downloadUrl": "https://github.com/stephenmk/yomitan-jlpt-vocab/releases/latest/download/jlpt.zip",
     "description": "Jonathan Waller's infamous JLPT vocabulary list converted to a tag bank for Yomitan.",
     "attribution": "© CC BY-SA 4.0 Stephen Kraus 2021-2024\n\nYou are free to use, modify, and redistribute these files under the terms of the Creative Commons Attribution-ShareAlike License (V4.0)",
-    "revision":    "2024.11.19.1"
+    "revision":    "2024.11.19.2"
 }
