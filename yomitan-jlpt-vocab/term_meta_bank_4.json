@@ -1,4 +1,6 @@
 [
+	["あっ", "freq", {"reading": "あっ", "frequency": {"value": 4, "displayValue": "N4"}}],
+	["アッ", "freq", {"reading": "アッ", "frequency": {"value": 4, "displayValue": "N4"}}],
 	["ああ", "freq", {"reading": "ああ", "frequency": {"value": 4, "displayValue": "N4"}}],
 	["挨拶", "freq", {"reading": "あいさつ", "frequency": {"value": 4, "displayValue": "N4"}}],
 	["間", "freq", {"reading": "あいだ", "frequency": {"value": 4, "displayValue": "N4"}}],

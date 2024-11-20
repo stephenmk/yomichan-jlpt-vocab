@@ -348,7 +348,7 @@
 	["側", "freq", {"reading": "そば", "frequency": {"value": 5, "displayValue": "N5"}}],
 	["空", "freq", {"reading": "そら", "frequency": {"value": 5, "displayValue": "N5"}}],
 	["それ", "freq", {"reading": "それ", "frequency": {"value": 5, "displayValue": "N5"}}],
-	["其れから", "freq", {"reading": "それから", "frequency": {"value": 5, "displayValue": "N5"}}],
+	["それから", "freq", {"reading": "それから", "frequency": {"value": 5, "displayValue": "N5"}}],
 	["それでは", "freq", {"reading": "それでは", "frequency": {"value": 5, "displayValue": "N5"}}],
 	["大学", "freq", {"reading": "だいがく", "frequency": {"value": 5, "displayValue": "N5"}}],
 	["大使館", "freq", {"reading": "たいしかん", "frequency": {"value": 5, "displayValue": "N5"}}],

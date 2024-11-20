@@ -1,5 +1,4 @@
 [
-	["あっ", "freq", {"reading": "あっ", "frequency": {"value": 3, "displayValue": "N3"}}],
 	["愛", "freq", {"reading": "あい", "frequency": {"value": 3, "displayValue": "N3"}}],
 	["愛情", "freq", {"reading": "あいじょう", "frequency": {"value": 3, "displayValue": "N3"}}],
 	["合図", "freq", {"reading": "あいず", "frequency": {"value": 3, "displayValue": "N3"}}],
@@ -1236,6 +1235,7 @@
 	["日中", "freq", {"reading": "にっちゅう", "frequency": {"value": 3, "displayValue": "N3"}}],
 	["にっこり", "freq", {"reading": "にっこり", "frequency": {"value": 3, "displayValue": "N3"}}],
 	["日本", "freq", {"reading": "にほん", "frequency": {"value": 3, "displayValue": "N3"}}],
+	["日本", "freq", {"reading": "にっぽん", "frequency": {"value": 3, "displayValue": "N3"}}],
 	["入場", "freq", {"reading": "にゅうじょう", "frequency": {"value": 3, "displayValue": "N3"}}],
 	["人気", "freq", {"reading": "にんき", "frequency": {"value": 3, "displayValue": "N3"}}],
 	["人間", "freq", {"reading": "にんげん", "frequency": {"value": 3, "displayValue": "N3"}}],
